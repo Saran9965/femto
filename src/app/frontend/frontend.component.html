@@ -95,7 +95,7 @@
         </div>
         <div class="col-md-4 col-sm-12">
           <label for="dispatchDate" class="form-label text-muted">Dispatch Date</label>
-          <input type="date" id="dispatchDate" [(ngModel)]="todaydate" class="form-control text-danger">
+          <input type="date" id="dispatchDate" [(ngModel)]="todaydate" class="form-control text-danger" (keydown.enter)="focusNext(destinationCountry)">
         </div>
       </div>
     </div>
@@ -105,29 +105,21 @@
       <div class="row">
         <div class="col-md-6">
           <label for="destinationCountry" class="form-label">Destination Country</label>
-          <select id="destinationCountry" class="form-select">
-            <option value="">Select Country</option>
-            <option value="USA">USA</option>
-            <option value="UK">UK</option>
-          </select>
+          <input type="number" id="destinationCountry" class="form-control" placeholder="Enter the Destination Country" #destinationCountry (keydown.enter)="focusNext(shipmentMode)">
         </div>
         <div class="col-md-6">
-          <label for="destinationPort" class="form-label">Shipment Mode</label>
-          <input type="text" id="shipmentMode" class="form-control" placeholder="Air / Sea">
+          <label for="shipmentMode" class="form-label">Shipment Mode</label>
+          <input type="number" id="shipmentMode" class="form-control" placeholder="Air / Sea" #shipmentMode (keydown.enter)="focusNext(DestinationPort)">
         </div>
       </div>
       <div class="row mt-3">
         <div class="col-md-6">
-          <label for="shipmentMode" class="form-label">Destination Port</label>
-          <select id="destinationPort" class="form-select">
-            <option value="">Select Country</option>
-            <option value="NYC">New York</option>
-            <option value="LON">London</option>
-          </select>
+          <label for="Destination Port" class="form-label">Destination Port</label>
+          <input type="number" id="Destination Port" class="form-control" placeholder="Enter the Destination Port" #DestinationPort (keydown.enter)="focusNext(shippingLine)">
         </div>
         <div class="col-md-6">
           <label for="shippingLine" class="form-label">Air/Shipping Line</label>
-          <input type="text" id="shippingLine" class="form-control" placeholder="Enter shipping line">
+          <input type="number" id="shippingLine" class="form-control" placeholder="Enter shipping line" #shippingLine>
         </div>
       </div>
       <div class="mt-4 d-flex flex-wrap justify-content-between align-items-center px-lg-5 px-3">
